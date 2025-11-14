@@ -225,7 +225,7 @@ Extends base `people` information for students.
 
 ---
 
- ## Locking Transaction 
+ ## Locking Transactions
 | Locking Transaction | What It Does | Who Did It |
 |----------------------|--------------|------------|
 | **Enroll a student with a lock** | Enrolls a student safely without conflicts or double-enrolling. | William |
