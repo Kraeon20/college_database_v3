@@ -1,55 +1,182 @@
-# 🎓 College Database Management System (CollegeDBV1)
+# College_Database_V3
 
-## 📘 Description
-The **College Database Management System (CollegeDBV1)** is a MySQL-based relational database designed to support a college’s academic and administrative operations.  
-It stores and organizes information about students, faculty, administrators, courses, rooms, semesters, and enrollment data — allowing for efficient management of people, schedules, and academic records.
+## What is it?
+The **#College_Database_V3** is a MySQL-based relational database designed to support a basic college’s academic and administrative operations. S  
+It stores and organizes information about students, faculty, administrators, courses, rooms, semesters, and enrollment data — allowing for efficient management of people, schedules, and academic records. 
 
-This schema supports:
-- Student enrollment and dormitory management  
-- Faculty and administrative staff tracking  
-- Course and section scheduling  
-- Room assignments and building organization  
-- Secure auditing and data integrity
+
+The database is designed to track:
+
+- General people records  
+- Student, faculty, and staff details  
+- Academic departments  
+- Courses and semester offerings  
+- Enrollment and student grades  
+- Rooms and scheduling  
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 1. [Description](#description)  
-2. [Database Overview](#database-overview)  
-3. [Tables and Descriptions](#tables-and-descriptions)    
+2. [Tables and Descriptions](#tables-and-descriptions)
+3. [Stored Procedures](#stored-procedures)  
 4. [Authors](#authors)
 
 ---
 
-## 🧩 Database Overview
-**Schema Name:** `af25andrb1_CollegeDBV1`  
-**Created Using:** MySQL Workbench
-**Entities:** 12 Tables  
-**Purpose:** A centralized database of a college and everything one might contain.
+
+## Tables and Descriptions
+
+| Table Name | Purpose / Description |
+|------------|------------------------|
+| **[people](#1-people)** | Core table storing general personal information for every individual in the system. |
+| **[student](#2-student)** | Extends `people` with student-specific details such as GPA and advisor. |
+| **[faculty](#3-faculty)** | Extends `people` to store faculty information including department and office location. |
+| **[staff](#4-staff)** | Extends `people` to represent non-faculty employees (administrative & support staff). |
+| **[department](#5-department)** | Stores academic departments such as "Computer Science" or "Mathematics". |
+| **[course](#6-course)** | Contains general information about courses (title, code, credit hours). |
+| **[course_offering](#7-course_offering)** | Represents a specific instance of a course taught during a semester, including room and faculty. |
+| **[semester](#8-semester)** | Stores semester terms (e.g., Fall 2025). |
+| **[room](#9-room)** | Contains room and building information for scheduling classes. |
+| **[enrollment](#10-enrollment)** | Records which students are enrolled in which course offerings, including grades. |
+| **[letter_grade](#11-letter_grade)** | Defines the grading scale (A, B+, etc.) with min/max score thresholds. |
+
+
+---
+##  Database Tables
+
+Below is a summary of all tables and their columns.
 
 ---
 
-## 🧱 Tables and Descriptions
+### **1. `people`**
+Stores general personal information.
 
-| Table Name | Description |
-|-------------|-------------|
-| **People** | Core table storing personal details (name, email, phone, address) for all individuals in the system (students, faculty, and admin). |
-| **Admin** | Represents administrative users, each linked to a person record for identity management. |
-| **Faculty** | Stores details about teaching staff, including office location and department assignment. |
-| **Students** | Contains student-specific information such as dorm assignment, admission and graduation dates, and enrollment status. |
-| **Courses** | Holds catalog information about courses offered by the college, including names and descriptions. |
-| **Semester** | Defines academic terms (e.g., Fall 2025, Spring 2026) with type and year attributes. |
-| **Course_Section** | Links courses, semesters, and faculty to represent individual course offerings. |
-| **Enrollment** | Tracks which students are enrolled in specific course sections and records their final grades. |
-| **Room** | Represents physical classroom spaces, including capacity and associated building. |
-| **Room_Schedule** | Assigns course sections to specific rooms for scheduling purposes. |
-| **Building** | Contains data about campus buildings and their abbreviations. |
-| **Dorm_room** | Tracks dormitory rooms, occupancy status, and links to building information. |
-| **emergency contact** | Stores emergency contact details linked to people (students or staff). |
+| Column         | Description        |
+|----------------|--------------------|
+| people_id      | Primary identifier |
+| first_name     | First name         |
+| last_name      | Last name          |
+| email          | Email address      |
+| date_of_birth  | Date of birth      |
+| gender         | Gender             |
+| address        | Home address       |
+| phone_number   | Contact number     |
 
 ---
 
-## 👀Views
+### **2. `student`**
+Extends base `people` information for students.
+
+| Column         | Description              |
+|----------------|--------------------------|
+| student_id     | Student identifier       |
+| people_id      | FK → people              |
+| cumulative_gpa | Overall GPA              |
+| advisor_id     | FK → faculty             |
+
+---
+
+### **3. `faculty`**
+
+| Column          | Description            |
+|-----------------|------------------------|
+| faculty_id      | Faculty identifier     |
+| people_id       | FK → people            |
+| department_id   | FK → department        |
+| office_location | Office location        |
+
+---
+
+### **4. `staff`**
+
+| Column        | Description           |
+|---------------|-----------------------|
+| staff_id      | Staff identifier      |
+| people_id     | FK → people           |
+| department_id | FK → department       |
+| staffcol      | Additional attribute  |
+
+---
+
+### **5. `department`**
+
+| Column         | Description |
+|----------------|-------------|
+| department_id  | Identifier  |
+| department_name| Name        |
+
+---
+
+### **6. `course`**
+
+| Column       | Description      |
+|--------------|------------------|
+| course_id    | Identifier       |
+| course_code  | Code (e.g., CS101) |
+| course_title | Title            |
+| credits      | Credit hours     |
+
+---
+
+### **7. `course_offering`**
+
+| Column             | Description              |
+|--------------------|--------------------------|
+| course_offering_id | Identifier               |
+| course_id          | FK → course              |
+| semester_id        | FK → semester            |
+| room_id            | FK → room                |
+| faculty_id         | FK → faculty             |
+| schedule           | Meeting days/times       |
+
+---
+
+### **8. `semester`**
+
+| Column       | Description         |
+|--------------|---------------------|
+| semester_id  | Identifier          |
+| semester_term| e.g., Fall 2025     |
+
+---
+
+### **9. `room`**
+
+| Column       | Description        |
+|--------------|--------------------|
+| room_id      | Identifier         |
+| room_number  | Room number        |
+| building     | Building name      |
+| capacity     | Seating capacity   |
+
+---
+
+### **10. `enrollment`**
+
+| Column             | Description            |
+|--------------------|------------------------|
+| enrollment_id      | Identifier             |
+| enrollment_date    | Date enrolled          |
+| enrollment_modified| Last modification date |
+| letter_grade_id    | FK → letter_grade      |
+| student_id         | FK → student           |
+| course_offering_id | FK → course_offering   |
+
+---
+
+### **11. `letter_grade`**
+
+| Column          | Description          |
+|-----------------|----------------------|
+| letter_grade_id | Identifier           |
+| grade           | e.g., A, B+          |
+| min_score       | Minimum percentage   |
+| max_score       | Maximum percentage   |
+
+---
+---
+## Views 
 
 | View Name | Description |
 |-------------|-------------|
@@ -63,19 +190,24 @@ This schema supports:
 | **Students Enrolled** | Shows the students and the courses they are enrolled in if they haven't graduated. |
 
 ---
-
-## 👩‍💻 Authors
-
-<img src="andrews_pfp.jpg" alt="Profile Picture" width="100" />
-
-👩‍🎓 **Andrew Bartsch**  
-- **GitHub Profile**: [AndrewBartsch42](https://github.com/AndrewBartsch42)  
-- **Email**: [anbart02@wsc.edu](mailto:anbart02@wsc.edu)  
-
+## Stored Procedures
+| Procedure Name | Description |
+|-------------|-------------|
 ---
 
-<img src="rafaels_pfp.jpg" alt="Profile Picture" width="100" />
+## Developers
 
-👨‍🎓 **Rafael Negrete Fonseca**  
+
+ **Williams Asante**  
+- **GitHub Profile**: [Kraeon20](https://github.com/Kraeon20)  
+- **Email**: [wiasan01@wsc.edu](mailto:wiasan01@wsc.edu)  
+
+
+**Rafael Negrete Fonseca**  
 - **GitHub Profile**: [rnegrete01](https://github.com/rnegrete01)  
 - **Email**: [ranegr01@wsc.edu](mailto:ranegr01@wsc.edu)  
+
+ **Steven Cain**  
+- **GitHub Profile**: [Stevencain3](https://github.com/Stevencain3)  
+- **Email**: [stcain01@wsc.edu](mailto:stcain01@wsc.edu)  
+
