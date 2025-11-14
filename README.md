@@ -194,15 +194,13 @@ Extends base `people` information for students.
 
 | View Name | Description |
 |-------------|-------------|
-| **Course Catalog** | Shows the courses and the associated data with each section. |
-| **Emergency Contacts** | Shows the currently enrolled students emergency contact information. |
-| **Faculty Offices** | Shows the faculty name and office location. |
-| **Grade Book** | Shows the current grades for students and which class that grade was given. |
-| **Course Section Location** | Shows the courses and Location. |
-| **Faculty Courses** | Shows the Course section with the faculties office information. |
-| **Student Dorms** | Shows the students and where their dorm room is. |
-| **Students Enrolled** | Shows the students and the courses they are enrolled in if they haven't graduated. |
-
+| **course_offering_summary** | A summary of each course offering, including course, semester, room, and faculty info. |
+| **course_summary** | Basic course info like title, code, and credits. | 
+| **enrollment_summary** | Shows student enrollments, course offerings, and grades in one place. |
+| **faculty_summary** | Quick view of faculty information, including department and office. |
+| **people_summary** | A combined look at all people in the system with their general info. | 
+| **staff_summary** | Summary of staff members, with their job title and their assigned departments. |
+| **student_summary** | Overview of students, their GPAs, and advisor info. | 
 ---
 
 ## Stored Procedures
