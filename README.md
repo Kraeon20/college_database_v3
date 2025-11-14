@@ -17,10 +17,14 @@ The database is designed to track:
 ---
 
 ## Table of Contents
-1. [Description](#what-is-this-database?)  
-2. [Tables and Descriptions](#tables-and-descriptions)
-3. [Stored Procedures](#stored-procedures)  
-4. [Authors](#authors)
+1. [Description](#what-is-this-database?)
+2. [EER Diagram](#eer-diagram)
+3. [Tables and Descriptions](#tables-and-descriptions)
+4. [Views](#views)
+5. [Stored Procedures](#stored-procedures)
+6. [Stored Functions](#stored-functions)
+7. [Locked Transactions](#locked-transactions)
+8. [Authors](#authors)
 
 ---
 ## EER Diagram 
@@ -180,7 +184,8 @@ Extends base `people` information for students.
 | max_score       | Maximum percentage   |
 
 ---
----
+
+
 ## Views 
 
 | View Name | Description |
@@ -195,6 +200,7 @@ Extends base `people` information for students.
 | **Students Enrolled** | Shows the students and the courses they are enrolled in if they haven't graduated. |
 
 ---
+
 ## Stored Procedures
 | Stored Procedure | What It Does | Who Did It |
 |------------------|--------------|------------|
@@ -202,11 +208,11 @@ Extends base `people` information for students.
 | **Delete a student** | Removes a student and any related data. | William |
 | **Get courses by department** | Shows all courses that belong to a specific department. | Steven |
 | **Update a student's GPA** | Updates or fixes a student’s GPA. | Steven |
-| **Get faculty in their department** | Lists all faculty members in a specific department. | Rafael |
 | **Add a new course** | Creates a new course in the system. | Rafael |
 | **Delete a course** | Deletes a course and anything tied to it. | Rafael |
 
 --- 
+
 ## Stored Functions
 | Stored Function | What It Returns | Who Did It |
 |-----------------|-----------------|------------|
@@ -214,11 +220,11 @@ Extends base `people` information for students.
 | **Calculate total students in a department** | Returns how many students belong to a department. | William |
 | **Get course offering per semester** | Shows which courses are offered in a given term/semester. | Steven |
 | **Return GPA label** | Converts GPA into labels like “High Honors”, “Honors”, “Satisfactory”, etc. | Steven |
-| **Get faculty name** | Returns the full name of a faculty member. | Rafael |
 | **Get department name by course** | Returns which department a course belongs to. | Rafael |
 | **Get grade value** | Converts letter grades into numeric values (A = 4.0). | Rafael |
 
 ---
+
  ## Locking Transaction 
 | Locking Transaction | What It Does | Who Did It |
 |----------------------|--------------|------------|
@@ -233,7 +239,6 @@ Extends base `people` information for students.
 
 ## Developers
 
-
  **Williams Asante**  
 - **GitHub Profile**: [Kraeon20](https://github.com/Kraeon20)  
 - **Email**: [wiasan01@wsc.edu](mailto:wiasan01@wsc.edu)  
@@ -242,6 +247,7 @@ Extends base `people` information for students.
 **Rafael Negrete Fonseca**  
 - **GitHub Profile**: [rnegrete01](https://github.com/rnegrete01)  
 - **Email**: [ranegr01@wsc.edu](mailto:ranegr01@wsc.edu)  
+
 
  **Steven Cain**  
 - **GitHub Profile**: [Stevencain3](https://github.com/Stevencain3)  
