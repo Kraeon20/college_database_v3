@@ -23,7 +23,7 @@ The database is designed to track:
 4. [Views](#views)
 5. [Stored Procedures](#stored-procedures)
 6. [Stored Functions](#stored-functions)
-7. [Locked Transactions](#locked-transactions)
+7. [Locking Transactions](#locking-transactions)
 8. [Authors](#authors)
 
 ---
