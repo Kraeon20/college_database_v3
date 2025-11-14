@@ -23,13 +23,18 @@ The database is designed to track:
 4. [Authors](#authors)
 
 ---
+## EER Diagram 
+
+<img width="543" height="373" alt="image" src="https://github.com/user-attachments/assets/6aed9a3b-4f54-4bab-85b3-31a59a2422af" />
+
+---
 
 
 ## Tables and Descriptions
 
 | Table Name | Purpose / Description |
 |------------|------------------------|
-| **[people](#1-people)** | Core table storing general personal information for every individual in the system. |
+| **[people](#1-people)** | Table storing general personal information for every individual in the system. |
 | **[student](#2-student)** | Extends `people` with student-specific details such as GPA and advisor. |
 | **[faculty](#3-faculty)** | Extends `people` to store faculty information including department and office location. |
 | **[staff](#4-staff)** | Extends `people` to represent non-faculty employees (administrative & support staff). |
