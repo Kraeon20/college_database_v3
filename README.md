@@ -1,7 +1,7 @@
 # College_Database_V3
 
-## What is it?
-The **#College_Database_V3** is a MySQL-based relational database designed to support a basic college’s academic and administrative operations. S  
+## What is This Database?
+The **#College_Database_V3** is a MySQL-based relational database designed to support a basic college’s academic and administrative operations.
 It stores and organizes information about students, faculty, administrators, courses, rooms, semesters, and enrollment data — allowing for efficient management of people, schedules, and academic records. 
 
 
@@ -17,7 +17,7 @@ The database is designed to track:
 ---
 
 ## Table of Contents
-1. [Description](#description)  
+1. [Description](#what-is-this-database?)  
 2. [Tables and Descriptions](#tables-and-descriptions)
 3. [Stored Procedures](#stored-procedures)  
 4. [Authors](#authors)
@@ -196,8 +196,39 @@ Extends base `people` information for students.
 
 ---
 ## Stored Procedures
-| Procedure Name | Description |
-|-------------|-------------|
+| Stored Procedure | What It Does | Who Did It |
+|------------------|--------------|------------|
+| **Add a new student** | Adds a new student and their basic info into the system. | William |
+| **Delete a student** | Removes a student and any related data. | William |
+| **Get courses by department** | Shows all courses that belong to a specific department. | Steven |
+| **Update a student's GPA** | Updates or fixes a student’s GPA. | Steven |
+| **Get faculty in their department** | Lists all faculty members in a specific department. | Rafael |
+| **Add a new course** | Creates a new course in the system. | Rafael |
+| **Delete a course** | Deletes a course and anything tied to it. | Rafael |
+
+--- 
+## Stored Functions
+| Stored Function | What It Returns | Who Did It |
+|-----------------|-----------------|------------|
+| **Get full name of a person** | Combines first and last name into one value. | William |
+| **Calculate total students in a department** | Returns how many students belong to a department. | William |
+| **Get course offering per semester** | Shows which courses are offered in a given term/semester. | Steven |
+| **Return GPA label** | Converts GPA into labels like “High Honors”, “Honors”, “Satisfactory”, etc. | Steven |
+| **Get faculty name** | Returns the full name of a faculty member. | Rafael |
+| **Get department name by course** | Returns which department a course belongs to. | Rafael |
+| **Get grade value** | Converts letter grades into numeric values (A = 4.0). | Rafael |
+
+---
+ ## Locking Transaction 
+| Locking Transaction | What It Does | Who Did It |
+|----------------------|--------------|------------|
+| **Enroll a student with a lock** | Enrolls a student safely without conflicts or double-enrolling. | William |
+| **Update faculty assignment** | Changes which faculty member teaches a course offering. | William |
+| **Transfer a student to another advisor** | Moves a student from one advisor to another. | Steven |
+| **Adjust a course's credits** | Updates the credit hours for a course. | Steven |
+| **Update a room's capacity** | Changes the max capacity of a classroom. | Rafael |
+| **Delete a department and its courses** | Deletes a department and all related courses safely. | Rafael |
+
 ---
 
 ## Developers
