@@ -1,11 +1,11 @@
 # College_Database_V3
 ![MySQL](https://img.shields.io/badge/Database-MySQL-blue)
-![Status](https://img.shields.io/badge/Version-2.1-success)
+![Status](https://img.shields.io/badge/Version-3.1-success)
 ![Workbench](https://img.shields.io/badge/Workbench-Compatible-orange)
 
 
 ## What is This Database?
-The **#College_Database_V3** is a MySQL-based relational database designed to support a basic college’s academic and administrative operations.
+The **College_Database_V3** is a MySQL-based relational database designed to support a basic college’s academic and administrative operations.
 It stores and organizes information about students, faculty, administrators, courses, rooms, semesters, and enrollment data — allowing for efficient management of people, schedules, and academic records. 
 
 
