@@ -230,8 +230,7 @@ Extends base `people` information for students.
 |----------------------|--------------|------------|
 | **Enroll a student with a lock** | Enrolls a student safely without conflicts or double-enrolling. | William |
 | **Update faculty assignment** | Changes which faculty member teaches a course offering. | William |
-| **Transfer a student to another advisor** | Moves a student from one advisor to another. | Steven |
-| **Adjust a course's credits** | Updates the credit hours for a course. | Steven |
+| **Update a student's GPA** | Updates a student’s GPA, but validates the gpa to ensure safe updating | Steven |
 | **Update a room's capacity** | Changes the max capacity of a classroom. | Rafael |
 | **Delete a department and its courses** | Deletes a department and all related courses safely. | Rafael |
 
