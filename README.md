@@ -208,8 +208,7 @@ Extends base `people` information for students.
 |------------------|--------------|------------|
 | **Add a new student** | Adds a new student and their basic info into the system. | William |
 | **Delete a student** | Removes a student and any related data. | William |
-| **Get courses by department** | Shows all courses that belong to a specific department. | Steven |
-| **Update a student's GPA** | Updates or fixes a student’s GPA. | Steven |
+| **Update a student's GPA** | Updates a student’s GPA. | Steven |
 | **Add a new course** | Creates a new course in the system. | Rafael |
 | **Delete a course** | Deletes a course and anything tied to it. | Rafael |
 
@@ -220,8 +219,7 @@ Extends base `people` information for students.
 |-----------------|-----------------|------------|
 | **Get full name of a person** | Combines first and last name into one value. | William |
 | **Calculate total students in a department** | Returns how many students belong to a department. | William |
-| **Get course offering per semester** | Shows which courses are offered in a given term/semester. | Steven |
-| **Return GPA label** | Converts GPA into labels like “High Honors”, “Honors”, “Satisfactory”, etc. | Steven |
+| **GPA validation** | validates a students gpa and returns either an error msg or if the gpa can be used | Steven |
 | **Get department name by course** | Returns which department a course belongs to. | Rafael |
 | **Get grade value** | Converts letter grades into numeric values (A = 4.0). | Rafael |
 
